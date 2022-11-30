@@ -5,7 +5,7 @@ namespace Stopwatches
     public partial class FStopwatches : Form
     {
         private const string SETTINGS_FILENAME = "settings.json";
-
+        private Dictionary<int, DateTime> _elapsedTimes = new Dictionary<int, DateTime>();
         public FStopwatches()
         {
             InitializeComponent();
@@ -35,34 +35,37 @@ namespace Stopwatches
 
         private void startStop(object sender, EventArgs e)
         {
-            var n = ((Button)sender).Tag;
+            var n = int.Parse((string)((Control)sender).Tag!);
             var maskedTextBox = (MaskedTextBox)Controls["maskedTextBox" + n]!;
-            var textBox = (TextBox)Controls["textBox" + n]!;
 
-            textBox.Tag = textBox.Tag == null ? DateTime.Now - (TimeSpan.TryParse(maskedTextBox.Text, out TimeSpan ts) ? ts : TimeSpan.Zero) : null;
-            maskedTextBox.Enabled = textBox.Tag == null;
+            if (_elapsedTimes.ContainsKey(n))
+                _elapsedTimes.Remove(n);
+            else
+                _elapsedTimes[n] = DateTime.Now - (TimeSpan.TryParse(maskedTextBox.Text, out TimeSpan ts) ? ts : TimeSpan.Zero);
+
+            maskedTextBox.Enabled = !_elapsedTimes.ContainsKey(n);
         }
 
         private void reset(object sender, EventArgs e)
         {
-            var n = ((Button)sender).Tag;
+            var n = int.Parse((string)((Control)sender).Tag!);
             var maskedTextBox = (MaskedTextBox)Controls["maskedTextBox" + n]!;
-            var textBox = (TextBox)Controls["textBox" + n]!;
-            if (textBox.Tag != null)
+
+            if (_elapsedTimes.ContainsKey(n))
                 startStop(sender, e);
             maskedTextBox.Text = TimeSpan.Zero.ToString();
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (var i = 1; i <= 10; i++)
             {
                 var maskedTextBox = (MaskedTextBox)Controls["maskedTextBox" + i]!;
-                var textBox = (TextBox)Controls["textBox" + i]!;
 
-                if (textBox.Tag != null)
+                if (_elapsedTimes.ContainsKey(i))
                 {
-                    var elapsed = DateTime.Now - (DateTime)textBox.Tag;
+                    var elapsed = DateTime.Now - _elapsedTimes[i];
                     maskedTextBox.Text = elapsed.ToString();
                 }
             }
@@ -126,6 +129,14 @@ namespace Stopwatches
                 }
             }
             calcTotal(sender, e);
+        }
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                startStop(sender, e);
+            }
         }
     }
 
