@@ -13,8 +13,7 @@ namespace Stopwatches
 
         private void setTopMost(bool v)
         {
-            TopMost = v;
-            menuItemAlwaysOnTop.Font = new Font(menuItemAlwaysOnTop.Font, TopMost ? FontStyle.Bold : FontStyle.Regular);
+            menuItemAlwaysOnTop.Checked = TopMost = v;
         }
 
         private void menuItemAlwaysOnTop_Click(object sender, EventArgs e)
@@ -40,6 +39,15 @@ namespace Stopwatches
 
         private void startStop(int n)
         {
+            if (menuItemExclusiveMode.Checked)
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    if (i != n && _elapsedTimes.ContainsKey(i))
+                        startStop(i);
+                }
+            }
+
             var maskedTextBox = (MaskedTextBox)Controls["maskedTextBox" + n]!;
 
             if (!_elapsedTimes.Remove(n))
@@ -89,6 +97,7 @@ namespace Stopwatches
         {
             var settings = new StopwatchesSettings
             {
+                ExclusiveMode = menuItemExclusiveMode.Checked,
                 TopMost = TopMost,
                 Opacity = Opacity,
                 Size = Size,
@@ -113,6 +122,7 @@ namespace Stopwatches
                     var settings = JsonSerializer.Deserialize<StopwatchesSettings>(settingsJson) ?? new StopwatchesSettings();
 
                     // apply settings
+                    menuItemExclusiveMode.Checked = settings.ExclusiveMode;
                     setTopMost(settings.TopMost);
                     setOpacity(settings.Opacity);
                     if (settings.Items != null)
@@ -176,6 +186,7 @@ namespace Stopwatches
 
     public class StopwatchesSettings
     {
+        public bool ExclusiveMode { get; set; } = true;
         public bool TopMost { get; set; }
         public double Opacity { get; set; } = 1;
         public Size? Size { get; set; }

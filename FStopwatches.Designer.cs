@@ -78,6 +78,8 @@
             this.menuItemAlwaysOnTop = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemExclusiveMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -629,19 +631,21 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemExclusiveMode,
+            this.toolStripSeparator2,
             this.opacityToolStripMenuItem,
             this.menuItemAlwaysOnTop,
             this.toolStripSeparator1,
             this.menuItemClose});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 82);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 140);
             // 
             // opacityToolStripMenuItem
             // 
             this.opacityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemComboBoxOpacity});
             this.opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
-            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.opacityToolStripMenuItem.Text = "Opacity";
             // 
             // menuItemComboBoxOpacity
@@ -665,21 +669,33 @@
             // menuItemAlwaysOnTop
             // 
             this.menuItemAlwaysOnTop.Name = "menuItemAlwaysOnTop";
-            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(174, 24);
+            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(210, 24);
             this.menuItemAlwaysOnTop.Text = "Always on Top";
             this.menuItemAlwaysOnTop.Click += new System.EventHandler(this.menuItemAlwaysOnTop_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
             // 
             // menuItemClose
             // 
             this.menuItemClose.Name = "menuItemClose";
-            this.menuItemClose.Size = new System.Drawing.Size(174, 24);
+            this.menuItemClose.Size = new System.Drawing.Size(210, 24);
             this.menuItemClose.Text = "Close";
             this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
+            // 
+            // menuItemExclusiveMode
+            // 
+            this.menuItemExclusiveMode.CheckOnClick = true;
+            this.menuItemExclusiveMode.Name = "menuItemExclusiveMode";
+            this.menuItemExclusiveMode.Size = new System.Drawing.Size(210, 24);
+            this.menuItemExclusiveMode.Text = "Exclusive Mode";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(207, 6);
             // 
             // FStopwatches
             // 
@@ -792,5 +808,7 @@
         private ToolStripMenuItem menuItemAlwaysOnTop;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem menuItemClose;
+        private ToolStripMenuItem menuItemExclusiveMode;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }
