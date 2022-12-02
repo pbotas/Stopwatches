@@ -11,26 +11,26 @@ namespace Stopwatches
             InitializeComponent();
         }
 
-        private void btnToggleTopMost_Click(object sender, EventArgs e)
+        private void setTopMost(bool v)
+        {
+            TopMost = v;
+            menuItemAlwaysOnTop.Font = new Font(menuItemAlwaysOnTop.Font, TopMost ? FontStyle.Bold : FontStyle.Regular);
+        }
+
+        private void menuItemAlwaysOnTop_Click(object sender, EventArgs e)
         {
             setTopMost(!TopMost);
         }
 
-        private void setTopMost(bool v)
+        private void menuItemComboBoxOpacity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TopMost = v;
-            btnToggleTopMost.Font = new Font(btnToggleTopMost.Font, TopMost ? FontStyle.Bold : FontStyle.Regular);
-        }
-
-        private void btnChangeOpacity_Click(object sender, EventArgs e)
-        {
-            setOpacity((Opacity * 100 + 20) % 101 / 100);
+            setOpacity((10 - menuItemComboBoxOpacity.SelectedIndex) / 10.0);
         }
 
         private void setOpacity(double v)
         {
-            Opacity = Math.Max(v, 0.2);
-            btnChangeOpacity.Text = new string('.', (int)(Opacity / 0.2));
+            Opacity = Math.Max(v, 0.1);
+            menuItemComboBoxOpacity.SelectedIndex = (int)(10 - (Opacity * 10));
         }
 
         private void startStop(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Stopwatches
                 if(TimeSpan.TryParse(Controls["maskedTextBox" + i]!.Text, out var ts))
                     totalTime += ts;                
             }
-            Text = totalTime.ToString("hh':'mm':'ss") + " - Stopwatches";
+            notifyIcon1.Text = Text = totalTime.ToString("hh':'mm':'ss") + " - Stopwatches";
         }
 
 
@@ -166,6 +166,11 @@ namespace Stopwatches
                 else if (e.KeyCode == Keys.D0)
                     startStop(10);
             }
+        }
+
+        private void menuItemClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 
