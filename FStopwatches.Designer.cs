@@ -78,9 +78,9 @@
             this.opacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemComboBoxOpacity = new System.Windows.Forms.ToolStripComboBox();
             this.menuItemAlwaysOnTop = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemHideTitleWhenInactive = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemHideTitleWhenInactive = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -640,7 +640,7 @@
             this.toolStripSeparator1,
             this.menuItemClose});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(235, 164);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(235, 136);
             // 
             // menuItemExclusiveMode
             // 
@@ -687,6 +687,14 @@
             this.menuItemAlwaysOnTop.Text = "Always on Top";
             this.menuItemAlwaysOnTop.Click += new System.EventHandler(this.menuItemAlwaysOnTop_Click);
             // 
+            // menuItemHideTitleWhenInactive
+            // 
+            this.menuItemHideTitleWhenInactive.CheckOnClick = true;
+            this.menuItemHideTitleWhenInactive.Name = "menuItemHideTitleWhenInactive";
+            this.menuItemHideTitleWhenInactive.Size = new System.Drawing.Size(234, 24);
+            this.menuItemHideTitleWhenInactive.Text = "Hide title when inactive";
+            this.menuItemHideTitleWhenInactive.Click += new System.EventHandler(this.menuItemHideTitleWhenInactive_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -699,20 +707,13 @@
             this.menuItemClose.Text = "Close";
             this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
             // 
-            // menuItemHideTitleWhenInactive
-            // 
-            this.menuItemHideTitleWhenInactive.CheckOnClick = true;
-            this.menuItemHideTitleWhenInactive.Name = "menuItemHideTitleWhenInactive";
-            this.menuItemHideTitleWhenInactive.Size = new System.Drawing.Size(234, 24);
-            this.menuItemHideTitleWhenInactive.Text = "Hide title when inactive";
-            this.menuItemHideTitleWhenInactive.Click += new System.EventHandler(this.menuItemHideTitleWhenInactive_Click);
-            // 
             // FStopwatches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(496, 349);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.maskedTextBox10);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.btnReset10);

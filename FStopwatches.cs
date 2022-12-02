@@ -138,8 +138,9 @@ namespace Stopwatches
                     Size = settings.Size ?? Size;
                     Location = settings.Location ?? Location;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message, "Error loading settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             calcTotal(sender, e);
