@@ -100,6 +100,7 @@ namespace Stopwatches
                 ExclusiveMode = menuItemExclusiveMode.Checked,
                 TopMost = TopMost,
                 Opacity = Opacity,
+                HideTitleWhenInactive = menuItemHideTitleWhenInactive.Checked,
                 Size = Size,
                 Location = Location,
                 Items = new int[10][].Select((v, i) => new string[] {
@@ -125,6 +126,7 @@ namespace Stopwatches
                     menuItemExclusiveMode.Checked = settings.ExclusiveMode;
                     setTopMost(settings.TopMost);
                     setOpacity(settings.Opacity);
+                    menuItemHideTitleWhenInactive.Checked = settings.HideTitleWhenInactive;
                     if (settings.Items != null)
                     {
                         for (var i = 1; i <= Math.Min(10, settings.Items.Length); i++)
@@ -190,7 +192,13 @@ namespace Stopwatches
 
         private void FStopwatches_Deactivate(object sender, EventArgs e)
         {
-            FormBorderStyle = FormBorderStyle.None;
+            if (menuItemHideTitleWhenInactive.Checked)
+                FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void menuItemHideTitleWhenInactive_Click(object sender, EventArgs e)
+        {
+            FormBorderStyle = menuItemHideTitleWhenInactive.Checked ? FormBorderStyle.None : FormBorderStyle.Sizable;
         }
     }
 
@@ -199,6 +207,7 @@ namespace Stopwatches
         public bool ExclusiveMode { get; set; } = true;
         public bool TopMost { get; set; }
         public double Opacity { get; set; } = 1;
+        public bool HideTitleWhenInactive { get; set; }
         public Size? Size { get; set; }
         public Point? Location { get; set; }
         public string[][]? Items { get; set; }

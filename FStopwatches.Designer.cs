@@ -80,6 +80,7 @@
             this.menuItemAlwaysOnTop = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemHideTitleWhenInactive = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -635,29 +636,30 @@
             this.toolStripSeparator2,
             this.opacityToolStripMenuItem,
             this.menuItemAlwaysOnTop,
+            this.menuItemHideTitleWhenInactive,
             this.toolStripSeparator1,
             this.menuItemClose});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 112);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(235, 164);
             // 
             // menuItemExclusiveMode
             // 
             this.menuItemExclusiveMode.CheckOnClick = true;
             this.menuItemExclusiveMode.Name = "menuItemExclusiveMode";
-            this.menuItemExclusiveMode.Size = new System.Drawing.Size(180, 24);
+            this.menuItemExclusiveMode.Size = new System.Drawing.Size(234, 24);
             this.menuItemExclusiveMode.Text = "Exclusive Mode";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(231, 6);
             // 
             // opacityToolStripMenuItem
             // 
             this.opacityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemComboBoxOpacity});
             this.opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
-            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.opacityToolStripMenuItem.Text = "Opacity";
             // 
             // menuItemComboBoxOpacity
@@ -681,21 +683,29 @@
             // menuItemAlwaysOnTop
             // 
             this.menuItemAlwaysOnTop.Name = "menuItemAlwaysOnTop";
-            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(180, 24);
+            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(234, 24);
             this.menuItemAlwaysOnTop.Text = "Always on Top";
             this.menuItemAlwaysOnTop.Click += new System.EventHandler(this.menuItemAlwaysOnTop_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(231, 6);
             // 
             // menuItemClose
             // 
             this.menuItemClose.Name = "menuItemClose";
-            this.menuItemClose.Size = new System.Drawing.Size(180, 24);
+            this.menuItemClose.Size = new System.Drawing.Size(234, 24);
             this.menuItemClose.Text = "Close";
             this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
+            // 
+            // menuItemHideTitleWhenInactive
+            // 
+            this.menuItemHideTitleWhenInactive.CheckOnClick = true;
+            this.menuItemHideTitleWhenInactive.Name = "menuItemHideTitleWhenInactive";
+            this.menuItemHideTitleWhenInactive.Size = new System.Drawing.Size(234, 24);
+            this.menuItemHideTitleWhenInactive.Text = "Hide title when inactive";
+            this.menuItemHideTitleWhenInactive.Click += new System.EventHandler(this.menuItemHideTitleWhenInactive_Click);
             // 
             // FStopwatches
             // 
@@ -813,5 +823,6 @@
         private ToolStripMenuItem menuItemClose;
         private ToolStripMenuItem menuItemExclusiveMode;
         private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem menuItemHideTitleWhenInactive;
     }
 }
