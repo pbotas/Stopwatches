@@ -182,6 +182,16 @@ namespace Stopwatches
         {
             Close();
         }
+
+        private void FStopwatches_Activated(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.Sizable;
+        }
+
+        private void FStopwatches_Deactivate(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.None;
+        }
     }
 
     public class StopwatchesSettings

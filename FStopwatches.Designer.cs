@@ -73,13 +73,13 @@
             this.btnStartStop10 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItemExclusiveMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.opacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemComboBoxOpacity = new System.Windows.Forms.ToolStripComboBox();
             this.menuItemAlwaysOnTop = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemExclusiveMode = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -638,14 +638,26 @@
             this.toolStripSeparator1,
             this.menuItemClose});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 140);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 112);
+            // 
+            // menuItemExclusiveMode
+            // 
+            this.menuItemExclusiveMode.CheckOnClick = true;
+            this.menuItemExclusiveMode.Name = "menuItemExclusiveMode";
+            this.menuItemExclusiveMode.Size = new System.Drawing.Size(180, 24);
+            this.menuItemExclusiveMode.Text = "Exclusive Mode";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // opacityToolStripMenuItem
             // 
             this.opacityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemComboBoxOpacity});
             this.opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
-            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.opacityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.opacityToolStripMenuItem.Text = "Opacity";
             // 
             // menuItemComboBoxOpacity
@@ -669,33 +681,21 @@
             // menuItemAlwaysOnTop
             // 
             this.menuItemAlwaysOnTop.Name = "menuItemAlwaysOnTop";
-            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(210, 24);
+            this.menuItemAlwaysOnTop.Size = new System.Drawing.Size(180, 24);
             this.menuItemAlwaysOnTop.Text = "Always on Top";
             this.menuItemAlwaysOnTop.Click += new System.EventHandler(this.menuItemAlwaysOnTop_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // menuItemClose
             // 
             this.menuItemClose.Name = "menuItemClose";
-            this.menuItemClose.Size = new System.Drawing.Size(210, 24);
+            this.menuItemClose.Size = new System.Drawing.Size(180, 24);
             this.menuItemClose.Text = "Close";
             this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
-            // 
-            // menuItemExclusiveMode
-            // 
-            this.menuItemExclusiveMode.CheckOnClick = true;
-            this.menuItemExclusiveMode.Name = "menuItemExclusiveMode";
-            this.menuItemExclusiveMode.Size = new System.Drawing.Size(210, 24);
-            this.menuItemExclusiveMode.Text = "Exclusive Mode";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(207, 6);
             // 
             // FStopwatches
             // 
@@ -747,8 +747,11 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(295, 88);
             this.Name = "FStopwatches";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Stopwatches";
             this.TopMost = true;
+            this.Activated += new System.EventHandler(this.FStopwatches_Activated);
+            this.Deactivate += new System.EventHandler(this.FStopwatches_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FStopwatches_FormClosing);
             this.Load += new System.EventHandler(this.FStopwatches_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FStopwatches_KeyDown);
