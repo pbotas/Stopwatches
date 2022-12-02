@@ -35,12 +35,14 @@ namespace Stopwatches
 
         private void startStop(object sender, EventArgs e)
         {
-            var n = int.Parse((string)((Control)sender).Tag!);
+            startStop(int.Parse((string)((Control)sender).Tag!));
+        }
+
+        private void startStop(int n)
+        {
             var maskedTextBox = (MaskedTextBox)Controls["maskedTextBox" + n]!;
 
-            if (_elapsedTimes.ContainsKey(n))
-                _elapsedTimes.Remove(n);
-            else
+            if (!_elapsedTimes.Remove(n))
                 _elapsedTimes[n] = DateTime.Now - (TimeSpan.TryParse(maskedTextBox.Text, out TimeSpan ts) ? ts : TimeSpan.Zero);
 
             maskedTextBox.Enabled = !_elapsedTimes.ContainsKey(n);
@@ -136,6 +138,33 @@ namespace Stopwatches
             if (e.KeyCode == Keys.Enter)
             {
                 startStop(sender, e);
+            }
+        }
+
+        private void FStopwatches_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.D1)
+                    startStop(1);
+                else if (e.KeyCode == Keys.D2)
+                    startStop(2);
+                else if (e.KeyCode == Keys.D3)
+                    startStop(3);
+                else if (e.KeyCode == Keys.D4)
+                    startStop(4);
+                else if (e.KeyCode == Keys.D5)
+                    startStop(5);
+                else if (e.KeyCode == Keys.D6)
+                    startStop(6);
+                else if (e.KeyCode == Keys.D7)
+                    startStop(7);
+                else if (e.KeyCode == Keys.D8)
+                    startStop(8);
+                else if (e.KeyCode == Keys.D9)
+                    startStop(9);
+                else if (e.KeyCode == Keys.D0)
+                    startStop(10);
             }
         }
     }

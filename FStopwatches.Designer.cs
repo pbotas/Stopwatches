@@ -686,12 +686,14 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnReset1);
             this.Controls.Add(this.btnStartStop1);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(295, 88);
             this.Name = "FStopwatches";
             this.Text = "Stopwatches";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FStopwatches_FormClosing);
             this.Load += new System.EventHandler(this.FStopwatches_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FStopwatches_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
